@@ -19,9 +19,6 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	self.view.backgroundColor = [UIColor greenColor];
-	
-	
 	// create the web sniffer
 	_webSniffer = [[WebSniffer alloc] init];
 	_webSniffer.translatesAutoresizingMaskIntoConstraints = NO;
