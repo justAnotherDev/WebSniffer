@@ -7,11 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "WebBrowserViewController.h"
-#import "WebSnifferLogger.h"
+#import "WebBrowserView.h"
+#import "WebSniffer.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) WebBrowserViewController *webSniffer;
+@property (nonatomic, strong) WebBrowserView *webBrowser;
 @end
 
 @implementation ViewController
@@ -22,12 +22,22 @@
 	self.view.backgroundColor = [UIColor lightGrayColor];
 	
 	// create the web sniffer
-	_webSniffer = [[WebBrowserViewController alloc] init];
-	[self.navigationController pushViewController:_webSniffer animated:NO];
+	_webBrowser = [[WebBrowserView alloc] initWithNavItem:self.navigationItem];
+	_webBrowser.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.view addSubview:_webBrowser];
+	
+	// setup the layout constraints (handles rotation too!)
+	NSDictionary *views = NSDictionaryOfVariableBindings(_webBrowser);
+	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webBrowser]|" options:0 metrics:nil views:views]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_webBrowser]|" options:0 metrics:nil views:views]];
 }
 
 -(void)saveLogFile {
-	[[WebSnifferLogger sharedInstace] writeLogToFile:[NSHomeDirectory() stringByAppendingString:@"/Documents/log.txt"]];
+	[[WebSniffer sharedInstace] writeLogToFile:[NSHomeDirectory() stringByAppendingString:@"/Documents/log.txt"]];
+}
+
+-(UINavigationItem*)webBrowserRequestsNavItem:(WebBrowserView *)webBrowser {
+	return self.navigationItem;
 }
 
 - (void)didReceiveMemoryWarning {

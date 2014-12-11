@@ -1,54 +1,16 @@
 //
-//  WebSnifferLogger.m
+//  WebSniffer.m
 //  WebSniffer
 //
 //  Created by Casey E on 12/10/14.
 //  Copyright (c) 2014 Casey E. All rights reserved.
 //
 
-#import "WebSnifferLogger.h"
+#import "WebSniffer.h"
 
 #define kDebugLoud 0
 
 @implementation WebSniffObject
-
--(NSString*)requestDescription {
-	NSMutableString *descriptionString = [NSMutableString string];
-	[descriptionString appendString:@"------------- START REQUEST -------------\n\n"];
-	[descriptionString appendFormat:@"URL: %@\n", _requestURL];
-	if ([_requestHeaders count]) {
-		[descriptionString appendFormat:@"Headers: %@\n", _requestHeaders];
-	}
-	if ([_requestCookies count]) {
-		[descriptionString appendFormat:@"Cookies: %@\n", _requestCookies];
-	}
-	if ([_postData length]) {
-		[descriptionString appendFormat:@"Post Data: %@\n", [NSString stringWithUTF8String:[_postData bytes]]];
-	}
-	[descriptionString appendString:@"\n------------- END REQUEST -------------"];
-	
-	return descriptionString;
-}
--(NSString*)responseDescription {
-	NSMutableString *descriptionString = [NSMutableString string];
-	[descriptionString appendString:@"------------- START RESPONSE -------------\n\n"];
-	[descriptionString appendFormat:@"URL: %@\n", _requestURL];
-	if ([_responseHeaders count]) {
-		[descriptionString appendFormat:@"Headers: %@\n", _responseHeaders];
-	}
-	if ([_responseCookies count]) {
-		[descriptionString appendFormat:@"Cookies: %@\n", _responseCookies];
-	}
-	if ([_responseData length]) {
-		[descriptionString appendFormat:@"Response: %@\n", [NSString stringWithUTF8String:[_responseData bytes]]];
-	}
-	[descriptionString appendString:@"\n------------- END RESPONSE -------------"];
-	
-	return descriptionString;
-}
--(NSString*)description {
-	return [NSString stringWithFormat:@"\n\n%@\n\n%@", [self requestDescription], [self responseDescription]];
-}
 
 -(id)initWithRequest:(NSURLRequest*)aRequest {
 	
@@ -95,15 +57,55 @@
 	if (kDebugLoud)
 		NSLog(@"%@", [self description]);
 }
+
+// customized descriptions
+-(NSString*)requestDescription {
+	NSMutableString *descriptionString = [NSMutableString string];
+	[descriptionString appendString:@"------------- START REQUEST -------------\n\n"];
+	[descriptionString appendFormat:@"URL: %@\n", _requestURL];
+	if ([_requestHeaders count]) {
+		[descriptionString appendFormat:@"Headers: %@\n", _requestHeaders];
+	}
+	if ([_requestCookies count]) {
+		[descriptionString appendFormat:@"Cookies: %@\n", _requestCookies];
+	}
+	if ([_postData length]) {
+		[descriptionString appendFormat:@"Post Data: %@\n", [NSString stringWithUTF8String:[_postData bytes]]];
+	}
+	[descriptionString appendString:@"\n------------- END REQUEST -------------"];
+	
+	return descriptionString;
+}
+-(NSString*)responseDescription {
+	NSMutableString *descriptionString = [NSMutableString string];
+	[descriptionString appendString:@"------------- START RESPONSE -------------\n\n"];
+	[descriptionString appendFormat:@"URL: %@\n", _requestURL];
+	if ([_responseHeaders count]) {
+		[descriptionString appendFormat:@"Headers: %@\n", _responseHeaders];
+	}
+	if ([_responseCookies count]) {
+		[descriptionString appendFormat:@"Cookies: %@\n", _responseCookies];
+	}
+	if ([_responseData length]) {
+		[descriptionString appendFormat:@"Response: %@\n", [NSString stringWithUTF8String:[_responseData bytes]]];
+	}
+	[descriptionString appendString:@"\n------------- END RESPONSE -------------"];
+	
+	return descriptionString;
+}
+-(NSString*)description {
+	return [NSString stringWithFormat:@"\n\n%@\n\n%@", [self requestDescription], [self responseDescription]];
+}
+
 @end
 
 
-static WebSnifferLogger *sharedInstance = nil;
-@interface WebSnifferLogger()
+static WebSniffer *sharedInstance = nil;
+@interface WebSniffer()
 @property (nonatomic, strong) NSMutableArray *logObjects;
 @end
 
-@implementation WebSnifferLogger
+@implementation WebSniffer
 
 +(instancetype)sharedInstace {
 	if (!sharedInstance) {

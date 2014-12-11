@@ -12,7 +12,7 @@
 		736C4BC81A3909DC0042C661 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736C4BC71A3909DC0042C661 /* ViewController.m */; };
 		736C4BCD1A3909DC0042C661 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 736C4BCC1A3909DC0042C661 /* Images.xcassets */; };
 		736C4BDC1A3909DC0042C661 /* WebSnifferTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 736C4BDB1A3909DC0042C661 /* WebSnifferTests.m */; };
-		736C4BE71A390A210042C661 /* WebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736C4BE61A390A210042C661 /* WebBrowserViewController.m */; };
+		736C4BE71A390A210042C661 /* WebBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 736C4BE61A390A210042C661 /* WebBrowserView.m */; };
 		736C4BEC1A390A8E0042C661 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 736C4BE81A390A8E0042C661 /* Default-568h.png */; };
 		736C4BED1A390A8E0042C661 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 736C4BE91A390A8E0042C661 /* Default-568h@2x.png */; };
 		736C4BEE1A390A8E0042C661 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 736C4BEA1A390A8E0042C661 /* Default-667h@2x.png */; };
@@ -20,8 +20,8 @@
 		736C4BF41A391F780042C661 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736C4BF31A391F780042C661 /* Foundation.framework */; };
 		73759C3C1A3955B90050255F /* WebSniffingURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C391A3955B90050255F /* WebSniffingURLProtocol.m */; };
 		73759C3D1A3955B90050255F /* WebSniffingURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C391A3955B90050255F /* WebSniffingURLProtocol.m */; };
-		73759C3E1A3955B90050255F /* WebSnifferLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C3B1A3955B90050255F /* WebSnifferLogger.m */; };
-		73759C3F1A3955B90050255F /* WebSnifferLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C3B1A3955B90050255F /* WebSnifferLogger.m */; };
+		73759C3E1A3955B90050255F /* WebSniffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C3B1A3955B90050255F /* WebSniffer.m */; };
+		73759C3F1A3955B90050255F /* WebSniffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C3B1A3955B90050255F /* WebSniffer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,16 +46,16 @@
 		736C4BD51A3909DC0042C661 /* WebSnifferTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebSnifferTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		736C4BDA1A3909DC0042C661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		736C4BDB1A3909DC0042C661 /* WebSnifferTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebSnifferTests.m; sourceTree = "<group>"; };
-		736C4BE51A390A210042C661 /* WebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebBrowserViewController.h; sourceTree = "<group>"; };
-		736C4BE61A390A210042C661 /* WebBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebBrowserViewController.m; sourceTree = "<group>"; };
+		736C4BE51A390A210042C661 /* WebBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebBrowserView.h; sourceTree = "<group>"; };
+		736C4BE61A390A210042C661 /* WebBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebBrowserView.m; sourceTree = "<group>"; };
 		736C4BE81A390A8E0042C661 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h.png"; path = "../Default-568h.png"; sourceTree = "<group>"; };
 		736C4BE91A390A8E0042C661 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		736C4BEA1A390A8E0042C661 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-667h@2x.png"; path = "../Default-667h@2x.png"; sourceTree = "<group>"; };
 		736C4BEB1A390A8E0042C661 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-736h@3x.png"; path = "../Default-736h@3x.png"; sourceTree = "<group>"; };
 		736C4BF31A391F780042C661 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		73759C391A3955B90050255F /* WebSniffingURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebSniffingURLProtocol.m; path = ../WebSniffingURLProtocol.m; sourceTree = "<group>"; };
-		73759C3A1A3955B90050255F /* WebSnifferLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebSnifferLogger.h; path = ../WebSnifferLogger.h; sourceTree = "<group>"; };
-		73759C3B1A3955B90050255F /* WebSnifferLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebSnifferLogger.m; path = ../WebSnifferLogger.m; sourceTree = "<group>"; };
+		73759C3A1A3955B90050255F /* WebSniffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebSniffer.h; path = ../WebSniffer.h; sourceTree = "<group>"; };
+		73759C3B1A3955B90050255F /* WebSniffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebSniffer.m; path = ../WebSniffer.m; sourceTree = "<group>"; };
 		73759C401A39566B0050255F /* WebSniffingURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebSniffingURLProtocol.h; path = ../WebSniffingURLProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,8 +104,8 @@
 				736C4BC41A3909DC0042C661 /* AppDelegate.m */,
 				736C4BC61A3909DC0042C661 /* ViewController.h */,
 				736C4BC71A3909DC0042C661 /* ViewController.m */,
-				736C4BE51A390A210042C661 /* WebBrowserViewController.h */,
-				736C4BE61A390A210042C661 /* WebBrowserViewController.m */,
+				736C4BE51A390A210042C661 /* WebBrowserView.h */,
+				736C4BE61A390A210042C661 /* WebBrowserView.m */,
 				73759C371A3955B90050255F /* WebSnifferShared */,
 				736C4BCC1A3909DC0042C661 /* Images.xcassets */,
 				736C4BBF1A3909DC0042C661 /* Supporting Files */,
@@ -146,10 +146,10 @@
 		73759C371A3955B90050255F /* WebSnifferShared */ = {
 			isa = PBXGroup;
 			children = (
+				73759C3A1A3955B90050255F /* WebSniffer.h */,
+				73759C3B1A3955B90050255F /* WebSniffer.m */,
 				73759C401A39566B0050255F /* WebSniffingURLProtocol.h */,
 				73759C391A3955B90050255F /* WebSniffingURLProtocol.m */,
-				73759C3A1A3955B90050255F /* WebSnifferLogger.h */,
-				73759C3B1A3955B90050255F /* WebSnifferLogger.m */,
 			);
 			name = WebSnifferShared;
 			path = ../../WebSniffer;
@@ -260,8 +260,8 @@
 				736C4BC81A3909DC0042C661 /* ViewController.m in Sources */,
 				73759C3C1A3955B90050255F /* WebSniffingURLProtocol.m in Sources */,
 				736C4BC51A3909DC0042C661 /* AppDelegate.m in Sources */,
-				73759C3E1A3955B90050255F /* WebSnifferLogger.m in Sources */,
-				736C4BE71A390A210042C661 /* WebBrowserViewController.m in Sources */,
+				73759C3E1A3955B90050255F /* WebSniffer.m in Sources */,
+				736C4BE71A390A210042C661 /* WebBrowserView.m in Sources */,
 				736C4BC21A3909DC0042C661 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,7 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73759C3F1A3955B90050255F /* WebSnifferLogger.m in Sources */,
+				73759C3F1A3955B90050255F /* WebSniffer.m in Sources */,
 				73759C3D1A3955B90050255F /* WebSniffingURLProtocol.m in Sources */,
 				736C4BDC1A3909DC0042C661 /* WebSnifferTests.m in Sources */,
 			);

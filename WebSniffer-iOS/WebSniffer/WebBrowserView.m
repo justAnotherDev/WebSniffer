@@ -1,14 +1,14 @@
 //
-//  WebBrowserViewController.m
-//  WebBrowserViewController
+//  WebBrowserView.m
+//  WebBrowserView
 //
 //  Created by Casey E on 12/10/14.
 //  Copyright (c) 2014 Casey E. All rights reserved.
 //
 
-#import "WebBrowserViewController.h"
+#import "WebBrowserView.h"
 
-@interface WebBrowserViewController() <UIWebViewDelegate, UITextFieldDelegate>
+@interface WebBrowserView() <UIWebViewDelegate, UITextFieldDelegate>
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) UITextField *urlField;
 @property (nonatomic, strong) UIBarButtonItem *refreshButton;
@@ -17,25 +17,21 @@
 
 @end
 
-@implementation WebBrowserViewController
+@implementation WebBrowserView
 
 // view creation
--(void)viewDidLoad {
-	[super viewDidLoad];
+-(id)initWithNavItem:(UINavigationItem *)navItem {
+	self = [super init];
+	if (!self)
+		return nil;
 	
-	self.view.backgroundColor = [UIColor lightGrayColor];
 	
-	/*UIView *topBar = [self createTopBar];
-	topBar.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.view addSubview:topBar];
-	*/
 	_backButton = [[UIBarButtonItem alloc] initWithTitle:@"← " style:UIBarButtonItemStylePlain target:self action:@selector(didTapBack)];
 	_forwardButton = [[UIBarButtonItem alloc] initWithTitle:@" →" style:UIBarButtonItemStylePlain target:self action:@selector(didTapForward)];
-	[self.navigationItem setLeftBarButtonItems:@[_backButton, _forwardButton]];
+	[navItem setLeftBarButtonItems:@[_backButton, _forwardButton]];
 	
 	_refreshButton = [[UIBarButtonItem alloc] initWithTitle:@"Reload" style:UIBarButtonItemStylePlain target:self action:@selector(didTapReload)];
-	[self.navigationItem setRightBarButtonItems:@[_refreshButton]];
-	
+	[navItem setRightBarButtonItems:@[_refreshButton]];
 	
 	_urlField = [[UITextField alloc] initWithFrame:CGRectMake(40, 0, 220, 24)];
 	_urlField.translatesAutoresizingMaskIntoConstraints = NO;
@@ -44,24 +40,21 @@
 	_urlField.textAlignment = NSTextAlignmentCenter;
 	_urlField.layer.cornerRadius = 5;
 	_urlField.clearButtonMode = UITextFieldViewModeWhileEditing;
-	[self.navigationItem setTitleView:_urlField];
-	
-	
-	//[self.navigationController.toolbar addSubview:topBar];
+	[navItem setTitleView:_urlField];
 	
 	_webView = [[UIWebView alloc] init];
 	_webView.translatesAutoresizingMaskIntoConstraints = NO;
 	_webView.scalesPageToFit = YES;
 	_webView.delegate = self;
-	[self.view addSubview:_webView];
+	[self addSubview:_webView];
+	
+	NSDictionary *views = NSDictionaryOfVariableBindings(_webView);
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_webView]|" options:0 metrics:nil views:views]];
 	
 	[_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.asdf.com"]]];
 	
-	NSDictionary *views = NSDictionaryOfVariableBindings(_webView);
-	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
-	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_webView]|" options:0 metrics:nil views:views]];
-	
-	[self updateBarButtons];
+	return self;
 }
 
 // view modification
