@@ -1,14 +1,14 @@
 //
-//  WebSniffLogger.m
+//  WebSnifferLogger.m
 //  WebSniffer
 //
 //  Created by Casey E on 12/10/14.
 //  Copyright (c) 2014 Casey E. All rights reserved.
 //
 
-#import "WebSniffLogger.h"
+#import "WebSnifferLogger.h"
 
-#define kDebugLoud 1
+#define kDebugLoud 0
 
 @implementation WebSniffObject
 
@@ -98,12 +98,12 @@
 @end
 
 
-static WebSniffLogger *sharedInstance = nil;
-@interface WebSniffLogger()
+static WebSnifferLogger *sharedInstance = nil;
+@interface WebSnifferLogger()
 @property (nonatomic, strong) NSMutableArray *logObjects;
 @end
 
-@implementation WebSniffLogger
+@implementation WebSnifferLogger
 
 +(instancetype)sharedInstace {
 	if (!sharedInstance) {

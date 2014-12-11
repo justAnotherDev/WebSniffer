@@ -1,5 +1,5 @@
 //
-//  WebSniffLogger.h
+//  WebSnifferLogger.h
 //  WebSniffer
 //
 //  Created by Casey E on 12/10/14.
@@ -14,23 +14,23 @@
 @property (nonatomic, readonly) NSString *requestID;
 
 // request data
-@property (nonatomic, readonly) NSURL *requestURL;
-@property (nonatomic, readonly) NSDictionary *requestHeaders;
-@property (nonatomic, readonly) NSArray *requestCookies;
-@property (nonatomic, readonly) NSData *postData;
+@property (nonatomic, strong, readonly) NSURL *requestURL;
+@property (nonatomic, strong, readonly) NSDictionary *requestHeaders;
+@property (nonatomic, strong, readonly) NSArray *requestCookies;
+@property (nonatomic, strong, readonly) NSData *postData;
 
 // response data
 @property (nonatomic, readonly) NSInteger statusCode;
-@property (nonatomic, readonly) NSString *MIMEType;
+@property (nonatomic, strong, readonly) NSString *MIMEType;
 @property (nonatomic, readonly) NSStringEncoding serverTextEncoding;
-@property (nonatomic, readonly) NSDictionary *responseHeaders;
-@property (nonatomic, readonly) NSArray *responseCookies;
-@property (nonatomic, readonly) NSData *responseData;
-@property (nonatomic, readonly) NSError *responseError;
+@property (nonatomic, strong, readonly) NSDictionary *responseHeaders;
+@property (nonatomic, strong, readonly) NSArray *responseCookies;
+@property (nonatomic, strong, readonly) NSData *responseData;
+@property (nonatomic, strong, readonly) NSError *responseError;
 
 @end
 
-@interface WebSniffLogger : NSObject
+@interface WebSnifferLogger : NSObject
 
 +(instancetype)sharedInstace;
 

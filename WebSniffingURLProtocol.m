@@ -7,7 +7,7 @@
 //
 
 #import "WebSniffingURLProtocol.h"
-#import "WebSniffLogger.h"
+#import "WebSnifferLogger.h"
 
 @interface WebSniffingURLProtocol()
 @property (nonatomic, strong) NSURLConnection *urlConnection;
@@ -42,7 +42,7 @@ static NSString *requestKey = @"requestKey";
 	NSMutableURLRequest *request = [self.request mutableCopy];
 	
 	// alert the logger and save the request's ID (to prevent duplicates and to close the request in the logger)
-	NSString *requestID = [[WebSniffLogger sharedInstace] startedRequest:request];
+	NSString *requestID = [[WebSnifferLogger sharedInstace] startedRequest:request];
 	[NSURLProtocol setProperty:requestID forKey:requestKey inRequest:request];
  
 	_mutableData = [NSMutableData data];
@@ -62,7 +62,7 @@ static NSString *requestKey = @"requestKey";
 	
 	if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
 		NSString *requestID = [NSURLProtocol propertyForKey:requestKey inRequest:connection.originalRequest];
-		[[WebSniffLogger sharedInstace] finishedResponse:(NSHTTPURLResponse*)response forIdentifier:requestID];
+		[[WebSnifferLogger sharedInstace] finishedResponse:(NSHTTPURLResponse*)response forIdentifier:requestID];
 	}
 	
 }
@@ -73,7 +73,7 @@ static NSString *requestKey = @"requestKey";
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	
 	NSString *requestID = [NSURLProtocol propertyForKey:requestKey inRequest:connection.originalRequest];
-	[[WebSniffLogger sharedInstace] finishedData:[NSData dataWithData:_mutableData] forIdentifier:requestID];
+	[[WebSnifferLogger sharedInstace] finishedData:[NSData dataWithData:_mutableData] forIdentifier:requestID];
 	
 	[NSURLProtocol removePropertyForKey:requestKey inRequest:[connection.originalRequest mutableCopy]];
 	[self.client URLProtocolDidFinishLoading:self];
@@ -82,7 +82,7 @@ static NSString *requestKey = @"requestKey";
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 	
 	NSString *requestID = [NSURLProtocol propertyForKey:requestKey inRequest:connection.originalRequest];
-	[[WebSniffLogger sharedInstace] finishedData:[NSData dataWithData:_mutableData] forIdentifier:requestID];
+	[[WebSnifferLogger sharedInstace] finishedData:[NSData dataWithData:_mutableData] forIdentifier:requestID];
 	
 	
 	

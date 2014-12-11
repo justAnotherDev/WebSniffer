@@ -19,8 +19,10 @@
 	
 	_viewController = [[ViewController alloc] init];
 	
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:_viewController];
+	
 	_window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	_window.rootViewController = _viewController;
+	_window.rootViewController = navController;
 	[_window makeKeyAndVisible];
 	
 	[NSURLProtocol registerClass:[WebSniffingURLProtocol class]];
