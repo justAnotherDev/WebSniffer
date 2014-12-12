@@ -6,7 +6,7 @@ View all incoming and outgoing network traffic.
 
 ###What's Returned
 
-WebSniffer listens to all network communications and stores each request and response togethar as a single object. Delegates will be alerted twice for each request, once for the request and once for the response.
+WebSniffer listens to all network communications and stores each request and response together as a single object. Delegates will be alerted twice for each request, once for the request and once for the response.
 
 ```objectivec
 @interface WebSniffObject : NSObject
