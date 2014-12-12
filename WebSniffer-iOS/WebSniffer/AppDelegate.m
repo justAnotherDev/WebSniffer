@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "WebSniffingURLProtocol.h"
+#import "WebSnifferURLProtocol.h"
 
 @interface AppDelegate ()
 @end
@@ -17,8 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	
-	
-	[NSURLProtocol registerClass:[WebSniffingURLProtocol class]];
+	// all web traffic will now route through WebSniffer
+	[NSURLProtocol registerClass:[WebSnifferURLProtocol class]];
 	
 	_viewController = [[ViewController alloc] init];
 	

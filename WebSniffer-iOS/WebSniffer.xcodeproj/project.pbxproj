@@ -51,8 +51,8 @@
 		736C4BDC1A3909DC0042C661 /* WebSnifferTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 736C4BDB1A3909DC0042C661 /* WebSnifferTests.m */; };
 		736C4BE71A390A210042C661 /* WebBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 736C4BE61A390A210042C661 /* WebBrowserView.m */; };
 		736C4BF41A391F780042C661 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736C4BF31A391F780042C661 /* Foundation.framework */; };
-		73759C3C1A3955B90050255F /* WebSniffingURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C391A3955B90050255F /* WebSniffingURLProtocol.m */; };
-		73759C3D1A3955B90050255F /* WebSniffingURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C391A3955B90050255F /* WebSniffingURLProtocol.m */; };
+		73759C3C1A3955B90050255F /* WebSnifferURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C391A3955B90050255F /* WebSnifferURLProtocol.m */; };
+		73759C3D1A3955B90050255F /* WebSnifferURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C391A3955B90050255F /* WebSnifferURLProtocol.m */; };
 		73759C3E1A3955B90050255F /* WebSniffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C3B1A3955B90050255F /* WebSniffer.m */; };
 		73759C3F1A3955B90050255F /* WebSniffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C3B1A3955B90050255F /* WebSniffer.m */; };
 		73759C431A397CC70050255F /* WebLoggerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73759C421A397CC70050255F /* WebLoggerView.m */; };
@@ -102,10 +102,10 @@
 		736C4BE51A390A210042C661 /* WebBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebBrowserView.h; sourceTree = "<group>"; };
 		736C4BE61A390A210042C661 /* WebBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebBrowserView.m; sourceTree = "<group>"; };
 		736C4BF31A391F780042C661 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		73759C391A3955B90050255F /* WebSniffingURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebSniffingURLProtocol.m; path = ../WebSniffingURLProtocol.m; sourceTree = "<group>"; };
+		73759C391A3955B90050255F /* WebSnifferURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebSnifferURLProtocol.m; path = ../WebSnifferURLProtocol.m; sourceTree = "<group>"; };
 		73759C3A1A3955B90050255F /* WebSniffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebSniffer.h; path = ../WebSniffer.h; sourceTree = "<group>"; };
 		73759C3B1A3955B90050255F /* WebSniffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebSniffer.m; path = ../WebSniffer.m; sourceTree = "<group>"; };
-		73759C401A39566B0050255F /* WebSniffingURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebSniffingURLProtocol.h; path = ../WebSniffingURLProtocol.h; sourceTree = "<group>"; };
+		73759C401A39566B0050255F /* WebSnifferURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebSnifferURLProtocol.h; path = ../WebSnifferURLProtocol.h; sourceTree = "<group>"; };
 		73759C411A397CC70050255F /* WebLoggerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebLoggerView.h; sourceTree = "<group>"; };
 		73759C421A397CC70050255F /* WebLoggerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebLoggerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,8 +240,8 @@
 			children = (
 				73759C3A1A3955B90050255F /* WebSniffer.h */,
 				73759C3B1A3955B90050255F /* WebSniffer.m */,
-				73759C401A39566B0050255F /* WebSniffingURLProtocol.h */,
-				73759C391A3955B90050255F /* WebSniffingURLProtocol.m */,
+				73759C401A39566B0050255F /* WebSnifferURLProtocol.h */,
+				73759C391A3955B90050255F /* WebSnifferURLProtocol.m */,
 			);
 			name = WebSnifferShared;
 			path = ../../WebSniffer;
@@ -382,7 +382,7 @@
 			files = (
 				733EFDE51A3AEACF00ECEA70 /* WebLoggerCell.m in Sources */,
 				736C4BC81A3909DC0042C661 /* ViewController.m in Sources */,
-				73759C3C1A3955B90050255F /* WebSniffingURLProtocol.m in Sources */,
+				73759C3C1A3955B90050255F /* WebSnifferURLProtocol.m in Sources */,
 				736C4BC51A3909DC0042C661 /* AppDelegate.m in Sources */,
 				73759C3E1A3955B90050255F /* WebSniffer.m in Sources */,
 				73759C431A397CC70050255F /* WebLoggerView.m in Sources */,
@@ -397,7 +397,7 @@
 			files = (
 				733EFDE61A3AEACF00ECEA70 /* WebLoggerCell.m in Sources */,
 				73759C3F1A3955B90050255F /* WebSniffer.m in Sources */,
-				73759C3D1A3955B90050255F /* WebSniffingURLProtocol.m in Sources */,
+				73759C3D1A3955B90050255F /* WebSnifferURLProtocol.m in Sources */,
 				736C4BDC1A3909DC0042C661 /* WebSnifferTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

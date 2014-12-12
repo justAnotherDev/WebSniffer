@@ -1,22 +1,22 @@
 //
-//  WebSniffingURLProtocol.m
+//  WebSnifferURLProtocol.m
 //  WebSniffer
 //
 //  Created by Casey E on 12/10/14.
 //  Copyright (c) 2014 Casey E. All rights reserved.
 //
 
-#import "WebSniffingURLProtocol.h"
+#import "WebSnifferURLProtocol.h"
 #import "WebSniffer.h"
 
-@interface WebSniffingURLProtocol()
+@interface WebSnifferURLProtocol()
 @property (nonatomic, strong) NSURLConnection *urlConnection;
 @property (nonatomic, strong) NSMutableData *mutableData;
 @end
 
 static NSString *requestKey = @"requestKey";
 
-@implementation WebSniffingURLProtocol
+@implementation WebSnifferURLProtocol
 
 // required abstract methods
 +(BOOL)canInitWithRequest:(NSURLRequest *)request {
