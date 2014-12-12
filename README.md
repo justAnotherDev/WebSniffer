@@ -6,7 +6,7 @@ View all incoming and outgoing network traffic.
 
 ###What's Returned
 
-WebSniffer listens to all network communications and stores each request/response as a single object. Delegates will be alerted twice for each request, once for the request and once for the response.
+WebSniffer listens to all network communications and stores each request and response togethar as a single object. Delegates will be alerted twice for each request, once for the request and once for the response.
 
 ```objectivec
 @interface WebSniffObject : NSObject
@@ -36,11 +36,16 @@ WebSniffer listens to all network communications and stores each request/respons
 ```
 
 
+###Trying It Out
+
+A sample iOS project has been included to demonstrate usage. The iOS project is by no means distribuition ready, but shows basic functionality of WebSniffer.
+
+
 ###Including In Your Own Project
 
-• Add WebSniffer and WebSnifferURLProxy to your project.
+* Add WebSniffer and WebSnifferURLProxy to your project.
 
-• Add to your app delegate:
+* Add to your app delegate:
 ```objectivec
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
 	
@@ -48,7 +53,7 @@ WebSniffer listens to all network communications and stores each request/respons
 	[NSURLProtocol registerClass:[WebSnifferURLProtocol class]];
 ```
 
-• To have a class listen to the network requests have it become a delegate of WebSniffer's sharedInstance.
+* To have a class listen to the network requests have it become a delegate of WebSniffer's sharedInstance.
 ```objectivec
 - (void)startListening {
 	[[WebSniffer sharedInstance] addDelegate:self];
@@ -65,7 +70,7 @@ WebSniffer listens to all network communications and stores each request/respons
 }
 ```
 
-• Stored requests can be accessed by any class using the provided functions. Becoming a delegate is only required if you want notifications of new requests.
+* Stored requests can be accessed by any class using the provided functions. Becoming a delegate is only required if you want notifications of new requests.
 
 ```objectivec
 -(NSUInteger)requestCount;
@@ -74,14 +79,10 @@ WebSniffer listens to all network communications and stores each request/respons
 -(WebSniffObject*)requestAtIndex:(NSInteger)index;
 ```
 
-###Trying It Out
-
-A sample iOS project has been included to demonstrate usage. The iOS project is by no means distribuition ready, but shows basic functionality of WebSniffer.
-
 
 ###Warnings
 
-• WebLogger stores all requests/responses that it receives, which will lead to memory issues if not managed. Use the built in functions to manage the request list.
+* WebLogger stores all requests/responses that it receives, which will lead to memory issues if not managed. Use the built in functions to manage the request list.
 
 ```objectivec
 -(void)clearLog;
@@ -91,5 +92,5 @@ A sample iOS project has been included to demonstrate usage. The iOS project is 
 
 ###Known Issues
 
-• Chunked data is not handled correctly
-• Binary files are not handled correctly
+* Chunked data is not handled correctly
+* Binary files are not handled correctly
