@@ -31,7 +31,7 @@
 	_webBrowser.delegate = self;
 	[self.view addSubview:_webBrowser];
 	
-	[_webBrowser loadURL:[NSURL URLWithString:@"http://www.google.com"]];
+	[_webBrowser loadURL:[NSURL URLWithString:@"http://www.asdf.com"]];
 	
 	NSDictionary *views = NSDictionaryOfVariableBindings(_webBrowser);
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webBrowser]|" options:0 metrics:nil views:views]];

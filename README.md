@@ -1,12 +1,12 @@
 WebSniffer
 ==========
 
-View all incoming and outgoing traffic.
+View all incoming and outgoing network traffic.
 
 
 ###What's Returned
 
-* WebSniffer listens to all network communications and stores each request/response as a single object. Delegates will be alerted twice for each request, once on start and once for the response.
+WebSniffer listens to all network communications and stores each request/response as a single object. Delegates will be alerted twice for each request, once for the request and once for the response.
 
 ```objectivec
 @interface WebSniffObject : NSObject
@@ -38,18 +38,18 @@ View all incoming and outgoing traffic.
 
 ###Including In Your Own Project
 
-* Add WebSniffer and WebSnifferURLProxy to your project.
+• Add WebSniffer and WebSnifferURLProxy to your project.
 
-* Add to your app delegate:
-	```objectivec
+• Add to your app delegate:
+```objectivec
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
 	
 	// all web traffic will now route through WebSniffer
 	[NSURLProtocol registerClass:[WebSnifferURLProtocol class]];
-	```
+```
 
-* To have a class listen to the network requests have it become a delegate of WebSniffer's sharedInstance.
-	```objectivec
+• To have a class listen to the network requests have it become a delegate of WebSniffer's sharedInstance.
+```objectivec
 - (void)startListening {
 	[[WebSniffer sharedInstance] addDelegate:self];
 }
@@ -63,16 +63,16 @@ View all incoming and outgoing traffic.
 -(void)webSniffer:(WebSniffer*)webSniffer didFinishLoading:(WebSniffObject*)aWebObject atIndex:(NSUInteger)requestIndex {
 	// Do something with the response info
 }
-	```
+```
 
-* Stored requests can be accessed by any class using the provided functions. Becoming a delegate is only required if you want notifications of new requests.
+• Stored requests can be accessed by any class using the provided functions. Becoming a delegate is only required if you want notifications of new requests.
 
-	```objectivec
+```objectivec
 -(NSUInteger)requestCount;
 -(NSArray*)allRequests;
 -(NSArray*)requestsInRange:(NSRange)aRange;
 -(WebSniffObject*)requestAtIndex:(NSInteger)index;
-	```
+```
 
 ###Trying It Out
 
@@ -81,15 +81,15 @@ A sample iOS project has been included to demonstrate usage. The iOS project is 
 
 ###Warnings
 
-* WebLogger stores all requests/responses that it receives, which will lead to memory issues if not managed. Use the built in functions to manage the request list.
+• WebLogger stores all requests/responses that it receives, which will lead to memory issues if not managed. Use the built in functions to manage the request list.
 
-	```objectivec
+```objectivec
 -(void)clearLog;
 -(void)removeRequestAtIndex:(NSInteger)index;
-	```
+```
 
 
 ###Known Issues
 
-* Chunked data is not handled correctly
-* Binary files are not handled correctly
+• Chunked data is not handled correctly
+• Binary files are not handled correctly
