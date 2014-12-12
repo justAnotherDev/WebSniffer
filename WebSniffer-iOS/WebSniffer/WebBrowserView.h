@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class WebBrowserView;
+@protocol WebBrowserViewDelegate <NSObject>
+-(void)webBrowserRequestsLog:(WebBrowserView*)webBrowser;
+@end
+
 @interface WebBrowserView : UIView
 
--(instancetype)initWithNavItem:(UINavigationItem*)navItem;
+@property (nonatomic, assign) id <WebBrowserViewDelegate> delegate;
+
+-(void)loadURL:(NSURL*)aURL;
 
 @end

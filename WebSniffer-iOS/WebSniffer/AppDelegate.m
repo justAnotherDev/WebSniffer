@@ -17,15 +17,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	
-	_viewController = [[ViewController alloc] init];
-	
-	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:_viewController];
-	
-	_window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	_window.rootViewController = navController;
-	[_window makeKeyAndVisible];
 	
 	[NSURLProtocol registerClass:[WebSniffingURLProtocol class]];
+	
+	_viewController = [[ViewController alloc] init];
+	
+	_window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	_window.rootViewController = _viewController;
+	[_window makeKeyAndVisible];
+	
 	
 	return YES;
 }
