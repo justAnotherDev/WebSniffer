@@ -53,9 +53,9 @@ A sample iOS project has been included to demonstrate usage. The iOS project is 
 	[NSURLProtocol registerClass:[WebSnifferURLProtocol class]];
 ```
 
-* To have a class listen to the network requests have it become a delegate of WebSniffer's sharedInstance.
+* To have a class listen to the network requests it should become a delegate of WebSniffer's sharedInstance.
 ```objectivec
-- (void)startListening {
+-(void)startListening {
 	[[WebSniffer sharedInstance] addDelegate:self];
 }
 
